@@ -1,5 +1,7 @@
 {
   "name": "money-sa",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

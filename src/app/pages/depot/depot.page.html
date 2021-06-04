@@ -1,0 +1,83 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="returnHome()">
+        <ion-icon class="menu" name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <img class="logo" src="../../../assets/images/logo.png" alt="logo">
+  </ion-toolbar>
+  <div class="titre">
+    Dépot
+  </div>
+
+  <ion-segment  mode="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="0">
+      Emmetteur
+    </ion-segment-button>
+
+    <ion-segment-button value="1">
+      Destinataire
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+<ion-content>
+
+  <ion-slides #slides pager="false" [options]="sliderOptions" (ionSlideDidChange)="slideShanged(slides)" (ionSlidesDidLoad)="slideShanged(slides)">
+
+    <ion-slide id="0">
+      <form >
+        <div >
+          <ion-item lines="none" color="transparent">
+            <ion-label position="floating">CNI:</ion-label>
+            <ion-input  type="text"  placeholder="Numéro CNI">
+            </ion-input>
+          </ion-item>
+
+          <ion-item lines="none" color="transparent">
+            <ion-label position="floating">Prénom et Nom:</ion-label>
+            <ion-input type="text"  placeholder="Prénom et nom">
+            </ion-input>
+          </ion-item>
+
+          <ion-item lines="none" color="transparent">
+            <ion-label position="floating">Téléphone:</ion-label>
+            <ion-input  type="text"  placeholder="Téléphone">
+            </ion-input>
+          </ion-item>
+        </div>
+
+        <ion-item lines="none" color="transparent">
+          <ion-label position="floating">Montant:</ion-label>
+          <ion-input  type="text"  placeholder="Montant">
+          </ion-input>
+        </ion-item>
+
+        <ion-item id="frais" lines="none" color="transparent">
+          <ion-label position="floating">Frais:</ion-label>
+          <ion-input type="text"  placeholder="rais" value="3500" disabled>
+          </ion-input>
+        </ion-item>
+      </form>
+    </ion-slide>
+
+    <ion-slide id="1" >
+      <form >
+        <ion-item lines="none" color="transparent">
+          <ion-label position="floating">Prénom et Nom:</ion-label>
+          <ion-input type="text"  placeholder="Prénom et Nom">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none" color="transparent">
+          <ion-label position="floating">Téléphone:</ion-label>
+          <ion-input type="text"  placeholder="Téléphone">
+          </ion-input>
+        </ion-item>
+      </form>
+    </ion-slide>
+  </ion-slides>
+  <ion-button class="ion-button-class" (click)="saveDepot()" shape="round" expand="block" fill="solid" size="large">Valider</ion-button>
+
+</ion-content>
